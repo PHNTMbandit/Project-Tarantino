@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+    <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock styles %}
+
+{%block body %}
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/max.png" %}" alt="Dom - the author of this blog"/>
+            <h2>DOM'S BLOG</h2>
+        </header>
+        <p>Hi I am Dom, I love to blog</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>I love programming and gaming</p>
+        <p>My goal is to keep on growning and learning as a developer</p>
+    </section>
+    <h1>Blog content</h1>
+{% endblock body %}
